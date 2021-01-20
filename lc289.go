@@ -3,7 +3,10 @@ package go_das
 func gameOfLife(board [][]int) {
 	n := len(board)
 	m := len(board[0])
-	next := make([][]int, n, m)
+	next := make([][]int, n)
+	for i := range next {
+		next[i] = make([]int, m)
+	}
 	dx := []int{-1, 0, 1}
 	dy := []int{-1, 0, 1}
 	for i := 0; i < n; i++ {
@@ -14,8 +17,8 @@ func gameOfLife(board [][]int) {
 					if ii == 0 && jj == 0 {
 						continue
 					}
-					if 0 <= i+ii && i+ii < n && 0 < j+jj && j+jj < m {
-						cnt += board[ii][jj]
+					if 0 <= i+ii && i+ii < n && 0 <= j+jj && j+jj < m {
+						cnt += board[i+ii][j+jj]
 					}
 				}
 			}

@@ -1,1 +1,3 @@
-module "https://github.com/anhphi257/go-das"
+module "go-das"
+
+go 1.14
